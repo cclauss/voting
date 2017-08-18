@@ -1,0 +1,137 @@
+[
+  {
+    "selected" : false,
+    "frame" : "{{0, 0}, {320, 480}}",
+    "class" : "View",
+    "nodes" : [
+      {
+        "selected" : false,
+        "frame" : "{{6, 71}, {308, 56}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "border_width" : 0.5,
+          "name" : "question",
+          "text" : "Label",
+          "frame" : "{{85, 224}, {150, 32}}",
+          "uuid" : "5D818BA5-5EDD-444E-A2DA-26FB0F126D87",
+          "number_of_lines" : 3,
+          "corner_radius" : 6,
+          "class" : "Label",
+          "alignment" : "left",
+          "font_size" : 18,
+          "font_name" : "<System>"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{224, 432}, {80, 32}}",
+        "class" : "Button",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "border_width" : 0.5,
+          "frame" : "{{120, 224}, {80, 32}}",
+          "title" : "Vote",
+          "uuid" : "347821C1-44C8-473E-865A-3051A144A8EC",
+          "class" : "Button",
+          "corner_radius" : 6,
+          "name" : "button1",
+          "font_size" : 15
+        }
+      },
+      {
+        "selected" : true,
+        "frame" : "{{6, 135}, {308, 232}}",
+        "class" : "TableView",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "uuid" : "D85DE9FC-2CD0-4EE3-9616-13D8E20E8E30",
+          "corner_radius" : 6,
+          "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
+          "frame" : "{{60, 140}, {200, 200}}",
+          "data_source_items" : "Row 1\nRow 2\nRow 3",
+          "data_source_number_of_lines" : 1,
+          "border_width" : 0.5,
+          "data_source_delete_enabled" : true,
+          "data_source_font_size" : 18,
+          "row_height" : 44,
+          "class" : "TableView",
+          "name" : "answers",
+          "flex" : "WH"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{0, 0}, {320, 49}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "name" : "category",
+          "frame" : "{{85, 224}, {150, 32}}",
+          "uuid" : "ED8B850A-E18D-499C-8DAC-EFF5CC3999A2",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Label",
+          "background_color" : "RGBA(1.000000,0.536232,0.304348,1.000000)",
+          "font_size" : 22,
+          "font_name" : "AvenirNext-DemiBoldItalic"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{67, 391}, {50, 50}}",
+        "class" : "Label",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "border_width" : 0.5,
+          "font_size" : 12,
+          "name" : "total_votes",
+          "frame" : "{{85, 224}, {150, 32}}",
+          "uuid" : "3AD1A501-4151-4095-A0F3-86EEC3F167BA",
+          "background_color" : "RGBA(0.652174,0.652174,1.000000,1.000000)",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "Label",
+          "corner_radius" : 25,
+          "font_name" : "<System-Bold>"
+        }
+      },
+      {
+        "selected" : false,
+        "frame" : "{{272, 6}, {32, 32}}",
+        "class" : "Button",
+        "nodes" : [
+
+        ],
+        "attributes" : {
+          "image_name" : "iob:information_circled_32",
+          "frame" : "{{120, 224}, {80, 32}}",
+          "title" : "",
+          "uuid" : "AB3DBECA-4544-499D-B410-29E4E227F28C",
+          "class" : "Button",
+          "font_size" : 15,
+          "name" : "button2"
+        }
+      }
+    ],
+    "attributes" : {
+      "flex" : "",
+      "custom_class" : "UserVote",
+      "enabled" : true,
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "name" : ""
+    }
+  }
+]
