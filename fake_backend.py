@@ -1,14 +1,15 @@
-import json
 from collections import namedtuple
-import arrow
+import json
 from uuid import uuid4
+import arrow
 
 '''
 Just building this up a step at a time.
 '''
 
 
-_vote = '''
+_vote = \
+'''
 {
   "VoteHeader" : {
     "vote_id" : "200",
@@ -35,28 +36,28 @@ _vote = '''
           "subtitle" : "Version 3",
           "votes_to_date" : 0
         },
-
+        
         {
           "id" : 2,
           "title" : "Python 3.6",
           "subtitle" : "Version 2",
           "votes_to_date" : 0
         },
-
+        
         {
           "id" : 3,
           "title" : "C++",
           "subtitle" : "",
           "votes_to_date" : 0
         },
-
+        
         {
           "id" : 4,
           "title" : "Java",
           "subtitle" : "",
           "votes_to_date" : 0
         },
-
+        
         {
           "id" : 5,
           "title" : "Javascript",
@@ -76,7 +77,7 @@ class VoteDataClass():
 
     def __init__(self, json_str=None):
         # header
-        self.vote_id = ''  # uuid 4
+        self.vote_id = ''            # uuid 4
         self.name = ''
         self.owner = ''
         self.is_public = ''
@@ -121,7 +122,7 @@ class VoteDataClass():
         answers = vote['answers']
         for ans in answers:
             # TODO: Not sure whats going on here!
-            _ = self.AnswerRecord(**ans)
+            ans_nt = self.AnswerRecord(**ans)
             # self.answers.append(ans_nt)
 
     def __repr__(self):
@@ -139,7 +140,37 @@ def fake_vote_record():
     rec.expiry_dt = utc_time.shift(hours=1)
     return rec
 
+
+class Backend():
+    def __init__(self, filename='default_db.json'):
+        self.filename = filename
+        with open(filename, 'a') as append_file:
+            if append_file.tell() == 0:     # if the file is empty
+                json.dump({}, append_file)  # write an empty dict
+
+    def read(self, key=None):
+        """When key is None, return all data."""
+        with open(self.filename) as in_file:
+            data = json.load(in_file)
+        return data if key is None else data.get(key, None)
+
+    def write(self, key, value):
+        assert key is not None, str(key) + ' is not a valid database key.'
+        data = self.read()  # get the whole database
+        data[key] = value   # add our key, value pair
+        with open(self.filename, 'w') as out_file:
+            data = json.dump(data, out_file)
+
 if __name__ == '__main__':
+    # print(json.loads(vr))
+    # json_dict = json.loads(vr)
     vc = fake_vote_record()
-    for k, v in vc.__dict__.items():
-        print('{:>10} {}'.format(k, v))
+    for key, value in vc.__dict__.items():
+        print('{:>10} {}'.format(key, value))
+ 
+    db = Backend('voting_data.json')
+    print(0, db.read())
+    timestamp = str(arrow.utcnow())
+    print(1, db.write(timestamp, 'This record created at ' + timestamp))
+    print(2, db.read())
+    
